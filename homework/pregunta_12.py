@@ -15,3 +15,17 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+    diccionario={}
+    with open("files/input/data.csv","r") as datos:
+        for linea in datos:
+            lista=linea.split()
+            lista_diccionario=linea.split()[-1]
+            pares=lista_diccionario.split(",")
+            for letras in pares:
+                letra=letras.split(":")
+                if lista[0] in diccionario:
+                    diccionario[lista[0]]+=int(letra[1])
+                elif lista[0] not in diccionario:
+                    diccionario[lista[0]]=int(letra[1])
+    return diccionario
+pregunta_12()

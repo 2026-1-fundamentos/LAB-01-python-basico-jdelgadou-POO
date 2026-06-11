@@ -15,3 +15,14 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+    diccionario={}
+    with open("files/input/data.csv","r") as datos:
+        for linea in datos:
+            lista=linea.split()
+            letra=lista[0]
+            if letra in diccionario:
+                diccionario[letra]+=int(lista[1])
+            elif letra not in diccionario:
+                diccionario[letra]=int(lista[1])
+    return sorted(diccionario.items())
+pregunta_03()

@@ -26,3 +26,14 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    diccionario={}
+    with open("files/input/data.csv","r") as datos:
+        for linea in datos:
+            lista=linea.split()[2]
+            letra=lista.split("-")[1]
+            if letra in diccionario:
+                diccionario[letra]+=1
+            elif letra not in diccionario:
+                diccionario[letra]=1
+    return sorted(diccionario.items())
+pregunta_04()

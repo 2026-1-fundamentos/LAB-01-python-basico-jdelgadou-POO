@@ -24,3 +24,18 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+    diccionario={}
+    with open("files/input/data.csv","r") as datos:
+        for linea in datos:
+            lista=linea.split()[-1]
+            pares=lista.split(",")
+            for letras in pares:
+                letra=letras.split(":")
+                if letra[0] in diccionario:
+                    diccionario[letra[0]].append(int(letra[1]))
+                elif letra[0] not in diccionario:
+                    diccionario[letra[0]]=[int(letra[1])]
+        for clave in diccionario.keys():
+            diccionario[clave]=len(diccionario[clave])
+    return diccionario
+pregunta_09()

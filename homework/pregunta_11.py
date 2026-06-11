@@ -16,3 +16,16 @@ def pregunta_11():
 
 
     """
+    diccionario={}
+    with open("files/input/data.csv","r") as datos:
+        for linea in datos:
+            lista=linea.split()
+            lista_letras=lista[-2]
+            pares=lista_letras.split(",")
+            for letra in pares:
+                if letra in diccionario:
+                    diccionario[letra]+=int(lista[1])
+                elif letra not in diccionario:
+                    diccionario[letra]=int(lista[1])
+    return diccionario
+pregunta_11()

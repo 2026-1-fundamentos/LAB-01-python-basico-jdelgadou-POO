@@ -20,3 +20,10 @@ def pregunta_10():
 
 
     """
+    lista=[]
+    with open("files/input/data.csv","r") as datos:
+        for linea in datos:
+            letra=linea.split()
+            lista.append((letra[0],len(letra[-2].split(",")),len(letra[-1].split(","))))
+    return lista
+pregunta_10()
